@@ -245,7 +245,7 @@ static int enable_monitor_mode(void)
 
 	/* Ensure that halting mode is disabled. */
 	ret = halting_mode_enabled();
-	if (ret)
+	if (ret) {
 		goto out;
 	}
 
