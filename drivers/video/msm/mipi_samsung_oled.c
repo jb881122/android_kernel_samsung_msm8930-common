@@ -46,7 +46,7 @@ unsigned char bypass_lcd_id;
 static char elvss_value;
 int is_lcd_connected = 1;
 struct mutex dsi_tx_mutex;
-#ifndef CONFIG_MACH_GOLDEN
+#ifndef CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT
 static int panel_colors = 2;
 #endif
 extern void panel_load_colors(unsigned int value, struct SMART_DIM *pSmart);
@@ -1702,7 +1702,7 @@ static struct lcd_ops mipi_samsung_disp_props = {
 #endif
 };
 
-#ifndef CONFIG_MACH_GOLDEN
+#ifndef CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT
 static ssize_t panel_colors_show(struct device *dev, struct device_attribute *attr, char *buf)
 {
 	return sprintf(buf, "%d\n", panel_colors);
@@ -1768,7 +1768,7 @@ static DEVICE_ATTR(fps_change, S_IRUGO | S_IWUSR | S_IWGRP,
 			mipi_samsung_fps_store);
 #endif
 
-#ifndef CONFIG_MACH_GOLDEN
+#ifndef CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT
 static DEVICE_ATTR(panel_colors, S_IRUGO | S_IWUSR | S_IWGRP,
 			panel_colors_show, panel_colors_store);
 #endif
@@ -2172,7 +2172,7 @@ static int __devinit mipi_samsung_disp_probe(struct platform_device *pdev)
 	}
 #endif
 
-#ifndef CONFIG_MACH_GOLDEN
+#ifndef CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT
 	ret = sysfs_create_file(&lcd_device->dev.kobj,
 						&dev_attr_panel_colors.attr);
 	if (ret) {
